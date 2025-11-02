@@ -14,20 +14,25 @@
 # -----------------------------------------------------------------------------
 set -e
 
-# === CONFIGURATION ===========================================================
+# === LOAD CONFIG =============================================================
+if [ -f .env ]; then
+    echo "[*] Loading environment from .env..."
+    # shellcheck disable=SC1091
+    source .env
+else
+    echo "[!] No .env file found. Please create one (see .env.example)."
+    exit 1
+fi
 
-# LDAP connection details
-LDAP_URI="ldap://<ldap-server-ip-or-hostname>"
-LDAP_BASE_DN="dc=example,dc=com"
-LDAP_BIND_DN="cn=binduser,ou=service_accounts,${LDAP_BASE_DN}"
-LDAP_BIND_PASSWORD="<super-secret-password>"
+# Validate required vars
+for VAR in LDAP_URI LDAP_BASE_DN LDAP_BIND_DN LDAP_BIND_PASSWORD LOGIN_GROUP SUDO_GROUP BREAK_GLASS_USER; do
+    if [ -z "${!VAR}" ]; then
+        echo "[!] Missing required variable: $VAR"
+        exit 1
+    fi
+done
 
-# LDAP groups
-LOGIN_GROUP="cn=i-server-login,ou=groups,${LDAP_BASE_DN}"
-SUDO_GROUP="cn=i-a-server_admins,ou=groups,${LDAP_BASE_DN}"
-
-# Local break-glass user
-BREAK_GLASS_USER="localadmin"
+# ============================================================================
 
 # ============================================================================
 
