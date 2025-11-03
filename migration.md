@@ -1,5 +1,3 @@
-Got it ✅ — here’s the same content **ready to drop directly into a file** named `MIGRATION.md` — no code fences wrapping the whole thing, just pure Markdown content as it would appear in GitHub:
-
 ---
 
 # 🚀 Migration Guide — JumpCloud → LDAP (Authentik)
