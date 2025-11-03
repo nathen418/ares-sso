@@ -180,7 +180,7 @@ sudo migrate-user.sh <local_username> <ldap_username>
 Example:
 
 ```bash
-sudo migrate-user.sh ker ker
+sudo migrate-user.sh testuser testuser
 ```
 
 ---
