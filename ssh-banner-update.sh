@@ -12,6 +12,9 @@ BANNER_FILE="/etc/issue.net"
 sudo tee "$BANNER_FILE" > /dev/null <<'EOF'
 *************************************************************************************************************
 *                                                                                                           *
+*                                       For Antares Network Use Only                                        *
+*                                  Login with your Antares SSO Credentials                                  *
+*                                                                                                           *
 *   You are attempting to login to a restricted system. Access to internal and network resources is closely *
 *   monitored.                                                                                              *
 *                                                                                                           *
