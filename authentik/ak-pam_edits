@@ -1,0 +1,3 @@
+# edits to /etc/pam.d/sudo
+
+auth    required    pam_authentik.so
